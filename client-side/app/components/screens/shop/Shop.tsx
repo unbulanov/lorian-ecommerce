@@ -11,7 +11,7 @@ const Shop: FC<IProductsPage> = ({ products }) => {
 			description='Catalog clothing and accessorize'
 		>
 			<Row
-        className='bg-dark-primary' 
+        className='bg-[##dfdff2]' 
         style={{
 				  backgroundBlendMode: 'multiply',
 				  backgroundImage: 'url(/images/texture3.jpg'

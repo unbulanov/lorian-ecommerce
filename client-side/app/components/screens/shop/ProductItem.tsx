@@ -22,8 +22,8 @@ const ProductItem: FC<IProductItem> = ({ index, product }) => {
   )
 
   return (
-    <Column size={index === 0 ? 3 : index === 4 ? 3 :2}>
-      <div className='text-white text-center pb-4'>
+    <Column size={index === 0 ? 3 : index === 4 ? 3 : 2} isBorder={false}>
+      <div className='text-white text-center border-solid border rounded-md border-dark-primary'>
         <div
         className='flex items-center justify-center mb-4'
           style={{
@@ -39,21 +39,23 @@ const ProductItem: FC<IProductItem> = ({ index, product }) => {
         />
 
         </div>
-        <h2 className='font-serif mb-2 text-lg'>{product.name}</h2>
-        <div className='mb-3'>{formatToCurrency(product.price)}</div>
-        <button
-          className='btn-link'
-          onClick={() => {
-            currentElement
-              ? removeFromCart({ id: currentElement.id })
-              : addToCart({
-                product,
-                quantity: 1,
-              })
-        }}
-        >
-          {currentElement ? 'Remove from cart' : 'Add to cart'}
-          </button>
+        <div className='bg-[#131313] py-3 px-3 rounded-md'>
+          <h2 className='font-serif mb-2 text-lg'>{product.name}</h2>
+          <div className='mb-3'>{formatToCurrency(product.price)}</div>
+          <button
+            className='btn-link'
+            onClick={() => {
+              currentElement
+                ? removeFromCart({ id: currentElement.id })
+                : addToCart({
+                  product,
+                  quantity: 1,
+                })
+          }}
+          >
+            {currentElement ? 'Remove from cart' : 'Add to cart'}
+            </button>
+        </div>
       </div>
     </Column>
   )

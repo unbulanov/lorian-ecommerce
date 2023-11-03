@@ -5,25 +5,49 @@ export interface IProductPart extends Pick<Product, 'name' | 'images'> {}
 
 export const products: IProductPart[] = [
 	{
-		name: 'Midnight Mint Mocha Frappuccino',
+		name: 'Short beanie',
 		images: [
 			'/uploads/images/products/cap.png',
 		]
 	},
 	{
-		name: 'Peppermint Mocha Starbucks',
+		name: 'Comfort jeans with side vent',
 		images: ['/uploads/images/products/jeans-2.png']
 	},
 	{
-		name: 'Matcha Crème Frappuccino® Blended Beverage',
+		name: 'Ripped Mom jeans',
 		images: ['/uploads/images/products/jeans.png']
 	},
 	{
-		name: 'Irish Cream Cold Brew Starbucks',
+		name: 'Short puffer',
 		images: ['/uploads/images/products/sleeveless-jacket.png']
 	},
 	{
-		name: 'Mango Dragonfruit Lemonade Starbucks Refreshers® Beverage',
+		name: 'Contrast trainers',
 		images: ['/uploads/images/products/trainers.png']
-	}
+	},
+	{
+		name: 'Fur slippers',
+		images: ['/uploads/images/products/slippers.png']
+	},
+	{
+		name: 'Rabbit Slippers',
+		images: ['/uploads/images/products/slippers2.png']
+	},
+	{
+		name: 'Blue trainers',
+		images: ['/uploads/images/products/trainers2.png']
+	},
+	{
+		name: 'Dark blue trainers',
+		images: ['/uploads/images/products/trainers3.png']
+	},
+	{
+		name: 'Sports trainers',
+		images: ['/uploads/images/products/trainers4.png']
+	},
+	{
+		name: 'Black sports trainers',
+		images: ['/uploads/images/products/trainers5.png']
+	},
 ]

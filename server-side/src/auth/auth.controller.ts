@@ -1,28 +1,26 @@
-import {
-  Body,
-  Controller,
-  HttpCode,
-  Post,
-  UsePipes,
-  ValidationPipe
-} from '@nestjs/common'
-import { AuthDto } from './auth.dto'
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
-	constructor(private readonly authService) {}
+  constructor(private authService: AuthService) {}
 
-	@UsePipes(new ValidationPipe())
-	@HttpCode(200)
-	@Post('login')
-	async login(@Body() dto: AuthDto) {
-		return this.authService.login(dto)
-	}
+  @Post('register')
+  async register(
+    @Body('username') username: string,
+    @Body('password') password: string
+  ) {
+    const hashedPassword = await this.authService.hashPassword(password);
+    // Сохранение пользователя и его захешированного пароля в базу данных
+    return { message: 'User registered successfully' };
+  }
 
-	@UsePipes(new ValidationPipe())
-	@HttpCode(200)
-	@Post('register')
-	async register(@Body() dto: AuthDto) {
-		return this.authService.register(dto)
-	}
+  @UseGuards(AuthGuard())
+  @Post('login')
+  async login(@Body('username') username: string) {
+    const payload = { username, sub: 1 }; // Идентификатор пользователя
+    const token = await this.authService.generateJwtToken(payload);
+    return { access_token: token };
+  }
 }
